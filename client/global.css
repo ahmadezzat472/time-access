@@ -1,7 +1,6 @@
 @tailwind base;
 @tailwind components;
 @tailwind utilities;
-
 @layer base {
   /**
    * Tailwind CSS theme
@@ -11,96 +10,117 @@
   :root {
     --background: 0 0% 100%;
     --foreground: 222.2 84% 4.9%;
-
     --card: 0 0% 100%;
     --card-foreground: 222.2 84% 4.9%;
-
     --popover: 0 0% 100%;
     --popover-foreground: 222.2 84% 4.9%;
-
-    --primary: 261 50% 48%;
+    --primary: 217 91% 60%;
     --primary-foreground: 210 40% 98%;
-
-    --secondary: 210 40% 96.1%;
-    --secondary-foreground: 222.2 47.4% 11.2%;
-
-    --muted: 210 40% 96.1%;
+    --secondary: 215 80% 95%;
+    --secondary-foreground: 217 80% 40%;
+    --muted: 215 80% 95%;
     --muted-foreground: 215.4 16.3% 46.9%;
-
-    --accent: 261 50% 96%;
-    --accent-foreground: 261 50% 11%;
-
+    --accent: 217 80% 90%;
+    --accent-foreground: 217 80% 40%;
     --destructive: 0 84.2% 60.2%;
     --destructive-foreground: 210 40% 98%;
-
-    --border: 214.3 31.8% 91.4%;
-    --input: 214.3 31.8% 91.4%;
-    --ring: 222.2 84% 4.9%;
-
-    --radius: 0.5rem;
-
-    --sidebar-background: 0 0% 98%;
-
+    --border: 220 13% 91%;
+    --input: 220 13% 91%;
+    --ring: 217 80% 40%;
+    --radius: 0.75rem;
+    --sidebar-background: 217 80% 98%;
     --sidebar-foreground: 240 5.3% 26.1%;
-
-    --sidebar-primary: 261 50% 48%;
-
+    --sidebar-primary: 217 80% 40%;
     --sidebar-primary-foreground: 0 0% 98%;
-
-    --sidebar-accent: 261 50% 96%;
-
-    --sidebar-accent-foreground: 261 50% 11%;
-
-    --sidebar-border: 220 13% 91%;
-
-    --sidebar-ring: 261 50% 58%;
+    --sidebar-accent: 217 80% 90%;
+    --sidebar-accent-foreground: 217 80% 40%;
+    --sidebar-border: 217 30% 92%;
+    --sidebar-ring: 217 80% 40%;
+    /* Dashboard specific colors */
+    --dashboard-bg: 217 80% 98%;
+    --stat-card-bg: 0 0% 100%;
+    --stat-purple: 262 83% 58%;
+    --stat-green: 142 76% 36%;
+    --stat-blue: 217 91% 60%;
+    --stat-orange: 25 95% 53%;
+    --warning-bg: 48 100% 96%;
+    --warning-border: 45 93% 47%;
   }
-
   .dark {
-    --background: 222.2 84% 4.9%;
+    --background: 217 47% 11%;
     --foreground: 210 40% 98%;
-
-    --card: 222.2 84% 4.9%;
+    --card: 217 47% 11%;
     --card-foreground: 210 40% 98%;
-
-    --popover: 222.2 84% 4.9%;
+    --popover: 217 47% 11%;
     --popover-foreground: 210 40% 98%;
-
-    --primary: 261 50% 58%;
-    --primary-foreground: 210 40% 98%;
-
-    --secondary: 217.2 32.6% 17.5%;
+    --primary: 217 91% 60%;
+    --primary-foreground: 217 47% 11%;
+    --secondary: 215 40% 18%;
     --secondary-foreground: 210 40% 98%;
-
-    --muted: 217.2 32.6% 17.5%;
+    --muted: 215 40% 18%;
     --muted-foreground: 215 20.2% 65.1%;
-
-    --accent: 217.2 32.6% 17.5%;
+    --accent: 215 40% 18%;
     --accent-foreground: 210 40% 98%;
-
     --destructive: 0 62.8% 30.6%;
     --destructive-foreground: 210 40% 98%;
-
-    --border: 217.2 32.6% 17.5%;
-    --input: 217.2 32.6% 17.5%;
-    --ring: 212.7 26.8% 83.9%;
-    --sidebar-background: 240 5.9% 10%;
+    --border: 215 40% 18%;
+    --input: 215 40% 18%;
+    --ring: 217 91% 60%;
+    --sidebar-background: 217 55% 8%;
     --sidebar-foreground: 240 4.8% 95.9%;
-    --sidebar-primary: 261 50% 58%;
+    --sidebar-primary: 217 91% 60%;
     --sidebar-primary-foreground: 0 0% 100%;
-    --sidebar-accent: 240 3.7% 15.9%;
+    --sidebar-accent: 215 40% 15%;
     --sidebar-accent-foreground: 240 4.8% 95.9%;
-    --sidebar-border: 240 3.7% 15.9%;
-    --sidebar-ring: 261 50% 68%;
+    --sidebar-border: 215 40% 15%;
+    --sidebar-ring: 217 91% 60%;
+    /* Dashboard specific colors - dark mode */
+    --dashboard-bg: 217 55% 8%;
+    --stat-card-bg: 217 47% 11%;
+    --stat-purple: 262 83% 68%;
+    --stat-green: 142 70% 45%;
+    --stat-blue: 217 91% 60%;
+    --stat-orange: 25 90% 60%;
+    --warning-bg: 48 50% 15%;
+    --warning-border: 45 80% 55%;
   }
 }
-
 @layer base {
   * {
     @apply border-border;
   }
-
   body {
     @apply bg-background text-foreground;
   }
+}
+
+/* Enhanced Custom Scrollbar */
+.custom-scrollbar::-webkit-scrollbar {
+  width: 4px !important;
+  background: hsla(var(--sidebar-background), 0.5); /* less opacity */
+}
+
+.custom-scrollbar::-webkit-scrollbar-thumb {
+  background: hsla(var(--sidebar-primary), 0.7); /* thumb color with opacity */
+  border-radius: 8px;
+  transition:
+    background 0.3s,
+    box-shadow 0.3s;
+}
+
+.custom-scrollbar::-webkit-scrollbar-thumb:hover {
+  background: hsla(var(--sidebar-primary), 1); /* fully opaque on hover */
+  box-shadow: 0 2px 8px hsla(var(--sidebar-primary), 0.2);
+}
+
+.custom-scrollbar::-webkit-scrollbar-track {
+  background: hsla(var(--sidebar-background), 0.3); /* even less opacity */
+  border-radius: 8px;
+}
+
+/* For Firefox */
+.custom-scrollbar {
+  scrollbar-width: thin;
+  scrollbar-color: hsla(var(--sidebar-primary), 0.7)
+    hsla(var(--sidebar-background), 0.5);
 }
